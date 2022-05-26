@@ -1,35 +1,39 @@
-# .github/workflows/**main.yml**
-name: Django-app workflow
+version: '3.8'
 
-on: [push]
+services:
+  db:
+    image: postgres:13.0-alpine
+    volumes:
+      - /var/lib/postgresql/data/
+    env_file:
+      - ./.env
+  web:
+    build: ../api_yamdb/
+    restart: always
+    volumes:
+      - static_value:/app/static/
+      - media_value:/app/media/
+    depends_on:
+      - db
+    env_file:
+      - ./.env
 
-jobs:
-  tests:
-    # «Раннер» — создание изолированного окружения с последней версией Ubuntu 
-    runs-on: ubuntu-latest
+  nginx:
+    image: nginx:1.21.3-alpine
 
-    steps:
-    # Запуск actions checkout — готового скрипта 
-    # для клонирования репозитория
-    - uses: actions/checkout@v2
-    - name: Set up Python
-      # Запуск actions setup-python — готового скрипта 
-      # для развёртывания окружения Python
-      uses: actions/setup-python@v2
-      with:
-        # Выбор версии Python
-        python-version: 3.7
+    ports:
+      - "80:80"
 
-    - name: Install dependencies
-      run: | 
-        # обновление pip
-        python -m pip install --upgrade pip 
-        # установка flake8 и его плагинов
-        pip install flake8 pep8-naming flake8-broken-line flake8-return flake8-isort
-        # установка зависимостей
-        pip install -r requirements.txt 
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
 
-    - name: Test with flake8 and django tests
-      run: |
-        # запуск проверки проекта по flake8
-        python -m flake8
+      - static_value:/var/html/static/
+
+      - media_value:/var/html/media/
+
+    depends_on:
+      - web
+
+volumes:
+  static_value:
+  media_value:

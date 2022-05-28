@@ -8,8 +8,7 @@ services:
     env_file:
       - ./.env
   web:
-    build: mariao-max/yamdb_final:latest
-    restart: always
+    image: mariao-max/yamdb_final:latest
     volumes:
       - static_value:/app/static/
       - media_value:/app/media/

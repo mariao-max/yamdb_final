@@ -1,5 +1,5 @@
 # yamdb_final
 
-![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+![workflow](https://github.com/mariao-max/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
 yamdb_final

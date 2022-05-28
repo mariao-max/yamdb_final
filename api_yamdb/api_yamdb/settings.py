@@ -9,7 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # SECRET_KEY = 'a@@%wu7&eqml#fv1@r@g24nbq*=s$f5$8zltp_=q*=newg!)rj'
-SECRET_KEY = os.getenv('SECRET_KEY', default=None)
+SECRET_KEY = os.getenv('SECRET_KEY', '12345')
 
 DEBUG = True
 

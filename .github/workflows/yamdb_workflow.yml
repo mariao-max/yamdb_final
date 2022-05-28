@@ -60,7 +60,7 @@ jobs:
           # Выполняет pull образа с DockerHub
           docker-compose stop
           docker-compose rm web
-          sudo docker pull mariaodrin/yamdb_final:latest
+          docker pull mariaodrin/yamdb_final:latest
           #остановка всех контейнеров
           docker-compose up -d
 

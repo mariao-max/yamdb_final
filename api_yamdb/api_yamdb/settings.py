@@ -12,7 +12,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', '12345')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['yatube2022.co.vu']
+ALLOWED_HOSTS = ['yatube2022.co.vu', '130.193.41.1']
 
 
 INSTALLED_APPS = [

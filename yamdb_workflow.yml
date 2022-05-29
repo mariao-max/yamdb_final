@@ -1,18 +1,30 @@
-name: apiyamdb_final workflow
+name: apiyamdb_final workflow 
 
-on: [push]
+ 
 
-jobs:
-  tests:
-    runs-on: ubuntu-latest
+on: [push] 
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.7
+ 
 
+jobs: 
+
+  tests: 
+
+    runs-on: ubuntu-latest 
+
+ 
+
+    steps: 
+
+    - uses: actions/checkout@v2 
+
+    - name: Set up Python 
+
+      uses: actions/setup-python@v2 
+
+      with: 
+
+        python-version: 3.7 
 
     - name: Install dependencies 
 

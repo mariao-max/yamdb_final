@@ -2,6 +2,8 @@
 
 *http://yatube2022.co.vu/admin*
 
+*http://yatube2022.co.vu/redoc*
+
 *http://130.193.41.1/admin*
 
 *http://130.193.41.1/redoc*

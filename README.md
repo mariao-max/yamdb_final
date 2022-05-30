@@ -15,7 +15,7 @@
 ```git clone https://github.com/mariao-max/yamdb_final.git```
 
 **Шаг 2. Создайте в клонированной директории файл .env**
-# Требования и пример заполнения файла .env
+#### Требования и пример заполнения файла .env
 
 Файл .env должен содержать следующие переменные:
 
@@ -60,6 +60,7 @@ docker-compose exec web python manage.py migrate
 ```docker-compose exec web python manage.py collectstatic```
 
 **Другие команды**
+
 Создание суперпользователя:
 ```docker-compose exec web python manage.py createsuperuser```
 

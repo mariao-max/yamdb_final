@@ -1,5 +1,11 @@
 # Проект yamdb_final
 
+*http://yatube2022.co.vu*
+
+*http://130.193.41.1/admin*
+
+*http://130.193.41.1/redoc*
+
 ![workflow](https://github.com/mariao-max/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
 ### Краткое описание проекта

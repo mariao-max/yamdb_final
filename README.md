@@ -15,28 +15,32 @@
 ```git clone https://github.com/mariao-max/yamdb_final.git```
 
 **Шаг 2. Создайте в клонированной директории файл .env**
-Пример:
+# Требования и пример заполнения файла .env
+
+Файл .env должен содержать следующие переменные:
+
 ```
-DB_ENGINE=django.db.backends.postgresql # указываем, что работаем с postgresql
-DB_NAME=postgres # имя базы данных
-POSTGRES_USER=postgres # логин для подключения к базе данных
-POSTGRES_PASSWORD=postgres # пароль для подключения к БД (установите свой)
-DB_HOST=db # название сервиса (контейнера)
-DB_PORT=5432 # порт для подключения к БД
+DB_ENGINE - драйвер СУБД для Django
+DB_NAME - имя базы данных для api_yamdb
+POSTGRES_USER - имя пользователя, владельца базы данных или администратора СУБД
+POSTGRES_PASSWORD - пароль пользователя из предыдущего пункта
+BD_HOST - имя хоста (docker-контейнера)
+DB_PORT - порт для подключения к базе данных
+SECRET_KEY - секретный ключ для нужд Django
 ```
-Измените файл settings.py, чтобы значения загружались из переменных окружения:
+
+Пример заполнения значениями по умолчанию:
+
 ```
-DATABASES = {
-    'default': {
-        'ENGINE': os.getenv('DB_ENGINE'),
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('POSTGRES_USER'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT')
-    }
-} 
+DB_ENGINE=django.db.backends.postgresql
+DB_NAME=postgres
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+BD_HOST=db
+DB_PORT=5432
+SECRET_KEY=Here_shoud_be_something_long_and_complex
 ```
+
 **Шаг 3. Запуск docker-compose**
 Для запуска необходимо выполнить из директории с проектом команду:
 
@@ -45,8 +49,10 @@ DATABASES = {
 **Шаг 4. База данных**
 Создаем и применяем миграции:
 
-```docker-compose exec web python manage.py makemigrations```
-```docker-compose exec web python manage.py migrate ```
+```
+docker-compose exec web python manage.py makemigrations
+docker-compose exec web python manage.py migrate
+```
 
 **Шаг 5. Подгружаем статику**
 Выполните команду:

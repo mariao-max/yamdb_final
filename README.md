@@ -1,6 +1,6 @@
 # Проект yamdb_final
 
-*http://yatube2022.co.vu*
+*http://yatube2022.co.vu/admin*
 
 *http://130.193.41.1/admin*
 
